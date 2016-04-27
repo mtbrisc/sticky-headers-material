@@ -1,0 +1,367 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* CUSTOM */
+body,html{
+	background:#000;
+	color:#212121;
+	overflow:hidden;
+	font-weight:400;
+	font-family:"Open Sans";
+	margin:0;
+	padding:0;
+}
+html{
+	overflow:auto;
+}
+
+div{
+	display:block;
+	box-sizing:border-box;
+}
+
+section{
+	height:auto;
+	width:100vw;
+	position:relative;
+	background:#eeeded;
+	color:#fff;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	padding-top:100px;
+	box-sizing:border-box;
+	display:block;
+	overflow: hidden;
+}
+
+.fixed{
+	background:#263238;
+	position:absolute;
+	font-size:2em;
+	color:#fff;
+	padding:0;
+	width:100%;
+	height:85px;
+	padding-top:6px;
+	left:0;
+	  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	  z-index:1000;
+	  transition:none;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    margin-top:-1px;
+}
+section.active .fixed{
+	position:fixed;
+	top:56px;
+	margin-top:0;
+}
+section.above .fixed{
+	position:absolute;
+	bottom:0px;
+	top:auto;
+}
+section.below .fixed{
+	position:absolute;
+	top:0px;
+	bottom:auto;
+}
+
+/*
+    '#181818',
+    '#494949',
+    '#607D8B',
+    '#9E9E9E',
+    '#E53935',
+    // '#F44336',
+    '#FF5722',
+    '#FF9800',
+    '#FFC107',
+    // '#CDDC39',
+    // '#8BC34A',
+    '#4CAF50',
+    '#009688',
+    '#00BCD4',
+    '#03A9F4',
+
+
+
+ */
+
+#section-1 .fixed{
+	background-color:#37474F;
+}
+#section-2 .fixed{
+	background-color:#03A9F4;
+}
+#section-3 .fixed{
+	background-color:#00BCD4;
+}
+#section-4 .fixed{
+	background-color:#009688;
+}
+#section-5 .fixed{
+	background-color:#4CAF50;
+}
+#section-6 .fixed{
+	background-color:#FFC107;
+}
+#section-7 .fixed{
+	background-color:#FF9800;
+}
+#section-8 .fixed{
+	background-color:#FF5722;
+}
+.title-text{
+	background-position:0px center;
+	background-repeat:no-repeat;
+	padding-left:80px;
+	background-size:48px auto;
+}
+#section-1 .title-text{
+	background-image:url('../img/icons/iconmonstr-code-2-64.png');
+}
+#section-2 .title-text{
+	background-image:url('../img/icons/iconmonstr-code-5-64.png');
+}
+#section-3 .title-text{
+	background-image:url('../img/icons/iconmonstr-computer-2-64.png');
+}
+#section-4 .title-text{
+	background-image:url('../img/icons/iconmonstr-cpu-2-64.png');
+}
+#section-5 .title-text{
+	background-image:url('../img/icons/iconmonstr-gamepad-4-64.png');
+}
+#section-6 .title-text{
+	background-image:url('../img/icons/iconmonstr-briefcase-2-64.png');
+}
+#section-7 .title-text{
+	background-image:url('../img/icons/iconmonstr-headphones-1-64.png');
+}
+#section-8 .title-text{
+	background-image:url('../img/icons/iconmonstr-email-2-64.png');
+}
+
+.title-text{
+	font-weight:300;
+	color:#fff;
+	font-size:1em;
+	line-height:75px;
+	width: 80vw;
+	position:absolute;
+	left:10vw;
+	transition:all 200ms;
+}
+.hero{
+	position:relative;
+	display:block;
+	height:64vh;
+	line-height:64vh;
+	width:100%;
+	text-align:center;
+	font-size:6vw;
+	background:#212121;
+	color:#E53935;
+	z-index:1;
+	font-weight:400;
+}
+
+
+.hero .small-text{
+	font-family:monospace;
+	font-size:1vw;
+	margin-top:-50vh;
+	font-weight:300;
+	color:#eee;
+}
+.light-text{
+	color:#fff;
+}
+.card{
+	background: #fff;
+	color:#212121;
+	border-radius: 2px;
+	display: block;
+	position: relative;
+	width:80vw;
+	height:auto;
+	margin:0 auto;
+	padding:80px 40px;
+	margin-bottom:20px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	cursor:pointer;
+	transition: all 0.2s ease-in-out;
+}
+.card:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.card h1{
+	width:auto;
+	padding:20px;
+	background:transparent;
+	color:#686868;
+	font-size:1.4em;
+	text-align:left;
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	/*border-radius: 2px 2px 0 0;*/
+	font-weight:300;
+}
+.menu-bar{
+	position:fixed;
+	top:0;
+	width:100%;
+	background:#212121;
+	color:#212121;
+	height:56px;
+	z-index:3000;
+	transition: all 0.5s ease-in-out;
+	font-size:1.7em;
+	font-weight:300;
+	padding:0;
+}
+.compact{
+	background:#fff;
+}
+.menu-wrapper{
+	width:80vw;
+	margin:0 auto;
+}
+.nav,
+.menu{
+	width:44px;
+	height:44px;
+	margin:0px;
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-size:36px 36px;
+	cursor:pointer;
+	display:inline-block;
+	opacity:.6;
+}
+.menu{
+	margin:6px;
+	background-image:url('../img/icons/iconmonstr-menu-1-48.png');
+	width:50px;
+	margin-right:4px;
+}
+.compact .menu{
+}
+.nav{
+	opacity:0;
+	pointer-events:none;
+	transition:all 0.2s ease-in-out;
+	position:relative;
+	top:-56px;
+	left:0px;
+	background-size:32px 32px;
+}
+.nav.active{
+	opacity: .6;
+	pointer-events:all;
+	top:-6px;
+}
+.nav-1{
+	transition-delay:100ms;
+	background-image:url('../img/icons/iconmonstr-code-2-48.png');
+	/*background-color:#37474F;*/
+}
+.nav-2{
+	transition-delay:200ms;
+	background-image:url('../img/icons/iconmonstr-code-5-48.png');
+	/*background-color:#03A9F4;*/
+}
+.nav-3{
+	transition-delay:300ms;
+	background-image:url('../img/icons/iconmonstr-computer-2-48.png');
+	/*background-color:#00BCD4;*/
+}
+.nav-4{
+	transition-delay:400ms;
+	background-image:url('../img/icons/iconmonstr-cpu-2-48.png');
+	/*background-color:#009688;*/
+}
+.nav-5{
+	transition-delay:500ms;
+	background-image:url('../img/icons/iconmonstr-gamepad-4-48.png');
+	/*background-color:#4CAF50;*/
+}
+.nav-6{
+	transition-delay:600ms;
+	background-image:url('../img/icons/iconmonstr-briefcase-2-48.png');
+	/*background-color:#FFC107;*/
+}
+.nav-7{
+	transition-delay:700ms;
+	background-image:url('../img/icons/iconmonstr-headphones-1-48.png');
+	/*background-color:#FF9800;*/
+}
+.nav-8{
+	transition-delay:800ms;
+	background-image:url('../img/icons/iconmonstr-email-2-48.png');
+	/*background-color:#FF5722;*/
+}
+
+@media (max-width:1024px){
+	.title-text,
+	.card{
+		width:90vw;
+	}
+	.nav{
+		display:block;
+		background-color:#fff;
+		margin-left:8px;
+	}
+	.nav.active{
+		opacity:1;
+	}
+}
