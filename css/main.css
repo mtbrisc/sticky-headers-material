@@ -4,7 +4,7 @@
 */
 
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+h1, h2, h3, h4, h5, h6, p, blockquote,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -67,6 +67,8 @@ div{
 	box-sizing:border-box;
 }
 
+
+
 section{
 	height:auto;
 	width:100vw;
@@ -90,9 +92,9 @@ section{
 	height:85px;
 	padding-top:6px;
 	left:0;
-	  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-	  z-index:1000;
-	  transition:none;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	z-index:1000;
+	transition:background-color 200ms;
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
     margin-top:-1px;
@@ -101,16 +103,19 @@ section.active .fixed{
 	position:fixed;
 	top:56px;
 	margin-top:0;
+	background-color:#00BCD4;
 }
 section.above .fixed{
 	position:absolute;
 	bottom:0px;
 	top:auto;
+	background-color:#494949;
 }
 section.below .fixed{
 	position:absolute;
 	top:0px;
 	bottom:auto;
+	background-color:#494949;
 }
 
 /*
@@ -134,30 +139,30 @@ section.below .fixed{
 
  */
 
-#section-1 .fixed{
-	background-color:#37474F;
+/*#section-1 .fixed{
+	background-color:#009688;
 }
 #section-2 .fixed{
-	background-color:#03A9F4;
+	background-color:#009688;
 }
 #section-3 .fixed{
-	background-color:#00BCD4;
+	background-color:#009688;
 }
 #section-4 .fixed{
 	background-color:#009688;
 }
 #section-5 .fixed{
-	background-color:#4CAF50;
+	background-color:#009688;
 }
 #section-6 .fixed{
-	background-color:#FFC107;
+	background-color:#009688;
 }
 #section-7 .fixed{
-	background-color:#FF9800;
+	background-color:#009688;
 }
 #section-8 .fixed{
-	background-color:#FF5722;
-}
+	background-color:#009688;
+}*/
 .title-text{
 	background-position:0px center;
 	background-repeat:no-repeat;
@@ -198,28 +203,50 @@ section.below .fixed{
 	position:absolute;
 	left:10vw;
 	transition:all 200ms;
+	white-space:nowrap;
+	overflow:hidden;
 }
 .hero{
 	position:relative;
 	display:block;
 	height:64vh;
-	line-height:64vh;
+	padding-top:20vh;
 	width:100%;
 	text-align:center;
-	font-size:6vw;
+	font-size:8vw;
 	background:#212121;
-	color:#E53935;
+	color:#FFC107;
 	z-index:1;
 	font-weight:400;
+	overflow:hidden;
 }
-
-
-.hero .small-text{
+pre{
+	white-space:pre-wrap;
+	word-break:break-all;
+	text-align:left!important;
+	width:100%
+	display:block;
+	position:relative;
+	bottom:0;
+	left:0;
+	margin:0!important;
+}
+.small-text {
 	font-family:monospace;
-	font-size:1vw;
-	margin-top:-50vh;
+	font-size:32px;
 	font-weight:300;
-	color:#eee;
+	position:absolute;
+	bottom:0;
+	opacity:.3;
+	z-index:-1;
+	color:rgba(255,255,255,.2);
+	width:50vw;
+}
+.small-text.first{
+	left:0;
+}
+.small-text.second{
+	left:50vw;
 }
 .light-text{
 	color:#fff;
@@ -232,9 +259,11 @@ section.below .fixed{
 	position: relative;
 	width:80vw;
 	height:auto;
+	min-height:30vh;
 	margin:0 auto;
 	padding:80px 40px;
-	margin-bottom:20px;
+	margin-bottom:60px;
+	margin-top:60px;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 	cursor:pointer;
 	transition: all 0.2s ease-in-out;
@@ -260,7 +289,7 @@ section.below .fixed{
 	position:fixed;
 	top:0;
 	width:100%;
-	background:#212121;
+	background:#fff;
 	color:#212121;
 	height:56px;
 	z-index:3000;
@@ -284,26 +313,29 @@ section.below .fixed{
 	background-repeat:no-repeat;
 	background-position:center center;
 	background-size:36px 36px;
+	background-color:#fff;
 	cursor:pointer;
 	display:inline-block;
 	opacity:.6;
 }
 .menu{
-	margin:6px;
+	margin:6px 0;
 	background-image:url('../img/icons/iconmonstr-menu-1-48.png');
 	width:50px;
+	width:0;
+	background-size:30px 24px;
 	margin-right:4px;
+	opacity:0;
 }
 .compact .menu{
 }
 .nav{
-	opacity:0;
-	pointer-events:none;
 	transition:all 0.2s ease-in-out;
 	position:relative;
-	top:-56px;
+	top:-6px;
 	left:0px;
 	background-size:32px 32px;
+	background-color:#fff;
 }
 .nav.active{
 	opacity: .6;
@@ -352,16 +384,44 @@ section.below .fixed{
 }
 
 @media (max-width:1024px){
-	.title-text,
+	.hero{
+		font-size:18vw;
+	}
 	.card{
 		width:90vw;
+	}
+	.title-text{
+		width:100vw;
+		left:20px;
+		padding-left:60px;
+	}
+	.menu,
+	.nav{
+		display:block;
+		left:0;
+		width:60px;
+		opacity:.6;
 	}
 	.nav{
 		display:block;
 		background-color:#fff;
-		margin-left:8px;
+		margin-left:-80px;
+		position:relative;
+		top:0;
 	}
 	.nav.active{
-		opacity:1;
+		margin-left:0
+	}
+	.menu-wrapper{
+		padding:0;
+		margin:0;
+		width:0px;
+		background:#fff;
+		transition:width 300ms;
+		transition-delay:800ms;
+	}
+	.menu-wrapper.active{
+		width:60px;
+		transition-delay:0ms!important;
 	}
 }
