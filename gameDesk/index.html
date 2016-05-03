@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Game 01</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<script type="text/javascript" src="js/phaser.min.js"></script>
+		<style>
+			html,body,#container{
+				padding:0;
+				margin:0;
+				overflow:hidden;
+				height:100%;
+				width:100%;
+			}
+			#container *{
+							   -webkit-transform: translate3d(0, 0, 0);
+			   -moz-transform: translate3d(0, 0, 0);
+			   -ms-transform: translate3d(0, 0, 0);
+			   transform: translate3d(0, 0, 0);
+			  /* Other transform properties here */
+
+			}
+			#container{
+			   -webkit-transform: translate3d(0, 0, 0);
+			   -moz-transform: translate3d(0, 0, 0);
+			   -ms-transform: translate3d(0, 0, 0);
+			   transform: translate3d(0, 0, 0);
+			  /* Other transform properties here */
+				font-family:"venus_risingregular"!important;
+				width:100%;
+				height:100%;
+background: linear-gradient(182deg, #00bfff, #c4eeec, #cd0b00, #ffe169,#cd0b00, #c4eeec, #00bfff,#c4eeec);
+background-size: 800% 800%;
+-webkit-animation: AnimationName 199s ease infinite;
+-moz-animation: AnimationName 199s ease infinite;
+-o-animation: AnimationName 199s ease infinite;
+animation: AnimationName 199s ease infinite;
+}
+@-webkit-keyframes AnimationName {
+    0%{background-position:51% 0%}
+    100%{background-position:50% 100%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:51% 0%}
+    100%{background-position:50% 100%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:51% 0%}
+    100%{background-position:50% 100%}
+}
+@keyframes AnimationName {
+    0%{background-position:51% 0%}
+    100%{background-position:50% 100%}
+}
+		</style>
+	</head>
+	<body>
+		<div id="container"></div>
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>

@@ -5,8 +5,8 @@
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 	<title>MTB</title>
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,800,300' rel='stylesheet' type='text/css'>
-	<script>document.write('<link href="css/main.css?dev=' + Math.floor(Math.random() * 100) + '" rel="stylesheet" type="text/css">');</script>
-	<script src="js/smoothscroll.js"></script>
+	<link href='//fonts.googleapis.com/css?family=Raleway:200,600' rel='stylesheet' type='text/css'>
+	<link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body onload="init()">
 	<div class="menu-bar">
@@ -20,514 +20,110 @@
 			<div class="nav nav-6"></div>
 			<div class="nav nav-7"></div>
 			<div class="nav nav-8"></div>
+			<div class="name">MATT BRISCOE</div>
 		</div>
 	</div>
 	<div class="content-area">
-		<div class="hero"><span class="light-text">MATT</span> BRISCOE
-<div class="small-text  first">
-<pre><code class="type-me">
-function init() {
-  cachedMenuObjHeight = menuObj.getBoundingClientRect().bottom - menuObj.getBoundingClientRect().top;
-  headerHeight = document.getElementsByClassName('fixed')[0].getBoundingClientRect().bottom - document.getElementsByClassName('fixed')[0].getBoundingClientRect().top;
-  getCurrentSection();
-  document.addEventListener("scroll", function () {
-    if (checking) {
-      getCurrentSection();
-    } else {
-      return;
-    }
-  });
-  var navItems = document.getElementsByClassName('nav');
-  document.getElementsByClassName('menu')[0].addEventListener("click", function () {
-    for (var i = 0; i < navItems.length; i++) {
-      toggleActiveMenuItem(navItems[i]);
-    }
-  });
-  for (var i = 0; i < navItems.length; i++) {
-    addScrollAnimation(navItems[i], 'section-' + (i + 1), document.getElementById('section-' + (i + 1)).getBoundingClientRect().top - document.body.getBoundingClientRect().top - document.getElementsByClassName('menu-bar')[0].getBoundingClientRect().bottom + 1);
-  }
-  var typingObjects = document.getElementsByClassName('type-me');
-  for(var i = 0; i<typingObjects.length;i++){
-    var text = typingObjects[i].innerHTML;
-    typeWriter(text, 0, typingObjects[i]);
-  }
-}
-
-function addScrollAnimation(el, targetId, offset) {
-  el.addEventListener("click", function () {
-    scrollTo(document.body, offset, 600);
-  }, false);
-}
-
-function toggleActiveMenuItem(el) {
-  if (el.classList.contains('active')) {
-    removeClassCustom(el, 'active');
-  } else {
-    addClassCustom(el, 'active');
-  }
-
-}
-
-function isin(n, a) {
-  for (var i = 0; i < a.length; i++) {
-    if (a[i] == n) {
-      return true;
-    }
-  }
-  return false;
-}
-
-function getCurrentSection() {
-  var currentSection = -1;
-  var menuObjBottom = menuObj.getBoundingClientRect().bottom;
-  if (a[0].getBoundingClientRect().top < cachedMenuObjHeight) {
-    addClassCustom(menuObj, 'compact');
-  } else {
-    removeClassCustom(menuObj, 'compact');
-  }
-  var index;
-  for (index = 0; index < a.length; index++) {
-    var currObj = a[index];
-    var currObjCachedRect = currObj.getBoundingClientRect();
-    var currObjCachedRectBottom = currObjCachedRect.bottom;
-    var currObjCachedRectTop = currObjCachedRect.top;
-    //addClassCustom(currObj, 'active');
-    if (currObjCachedRectBottom > menuObjBottom &&
-      currObjCachedRectTop <= menuObjBottom) {
-      currentSection = index;
-    }
-    if (currObjCachedRectBottom < (headerHeight + menuObjBottom)) {
-      currentSection = -1;
-    }
-    if (currObjCachedRectTop > menuObjBottom) {
-      removeClassCustom(currObj, 'above');
-      addClassCustom(currObj, 'below');
-    } else {
-      removeClassCustom(currObj, 'below');
-      addClassCustom(currObj, 'above');
-    }
-  }
-  if (currentSection !== -1) {
-    activateFixed(a[currentSection]);
-  }
-}
-
-function activateFixed(obj) {
-  removeClassCustom(obj, 'above');
-  removeClassCustom(obj, 'below');
-  addClassCustom(obj, 'active');
-}
-
-Array.min = function (array) {
-  return Math.min.apply(Math, array);
-};
-
-function addClassCustom(el, classToAdd) {
-  if (!el.classList.contains(classToAdd)) {
-    el.classList.add(classToAdd);
-  }
-}
-
-function removeClassCustom(el, classToAdd) {
-  if (el.classList.contains(classToAdd)) {
-    el.classList.remove(classToAdd);
-  }
-}
-/* 
-  idea from: http://stackoverflow.com/questions/8917921/cross-browser-javascript-not-jquery-scroll-to-top-animation
-*/
-
-function scrollTo(element, to, duration) {
-  if (duration <= 0) return;
-  var difference = to - element.scrollTop;
-  var perTick = difference / duration * 10;
-
-  setTimeout(function () {
-    element.scrollTop = element.scrollTop + perTick;
-    if (element.scrollTop == to) return;
-    scrollTo(element, to, duration - 10);
-  }, 10);
-}
-
-/*
-  idea from: http://codepen.io/voronianski/pen/aicwk
-*/
-function typeWriter(text, n, obj) {
-  if (n < (text.length)) {
-    obj.innerHTML = text.substring(0, n + 1);
-    n++;
-    setTimeout(function () {
-      typeWriter(text, n, obj);
-    }, 30);
-  }
-}
-</code></pre>
-	</div>
-<div class="small-text second">
-<pre><code class="type-me">
-body,html{
-	background:#000;
-	color:#212121;
-	overflow:hidden;
-	font-weight:400;
-	font-family:"Open Sans";
-	margin:0;
-	padding:0;
-}
-html{
-	overflow:auto;
-}
-
-div{
-	display:block;
-	box-sizing:border-box;
-}
-
-pre{
-	color:white;
-	white-space:pre-wrap;
-	text-align:left!important;
-}
-
-
-
-section{
-	height:auto;
-	width:100vw;
-	position:relative;
-	background:#eeeded;
-	color:#fff;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-	padding-top:100px;
-	box-sizing:border-box;
-	display:block;
-	overflow: hidden;
-}
-
-.fixed{
-	background:#263238;
-	position:absolute;
-	font-size:2em;
-	color:#fff;
-	padding:0;
-	width:100%;
-	height:85px;
-	padding-top:6px;
-	left:0;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-	z-index:1000;
-	transition:none;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    margin-top:-1px;
-}
-section.active .fixed{
-	position:fixed;
-	top:56px;
-	margin-top:0;
-}
-section.above .fixed{
-	position:absolute;
-	bottom:0px;
-	top:auto;
-}
-section.below .fixed{
-	position:absolute;
-	top:0px;
-	bottom:auto;
-}
-
-#section-1 .fixed{
-	background-color:#37474F;
-}
-#section-2 .fixed{
-	background-color:#03A9F4;
-}
-#section-3 .fixed{
-	background-color:#00BCD4;
-}
-#section-4 .fixed{
-	background-color:#009688;
-}
-#section-5 .fixed{
-	background-color:#4CAF50;
-}
-#section-6 .fixed{
-	background-color:#FFC107;
-}
-#section-7 .fixed{
-	background-color:#FF9800;
-}
-#section-8 .fixed{
-	background-color:#FF5722;
-}
-.title-text{
-	background-position:0px center;
-	background-repeat:no-repeat;
-	padding-left:80px;
-	background-size:48px auto;
-}
-#section-1 .title-text{
-	background-image:url('../img/icons/iconmonstr-code-2-64.png');
-}
-#section-2 .title-text{
-	background-image:url('../img/icons/iconmonstr-code-5-64.png');
-}
-#section-3 .title-text{
-	background-image:url('../img/icons/iconmonstr-computer-2-64.png');
-}
-#section-4 .title-text{
-	background-image:url('../img/icons/iconmonstr-cpu-2-64.png');
-}
-#section-5 .title-text{
-	background-image:url('../img/icons/iconmonstr-gamepad-4-64.png');
-}
-#section-6 .title-text{
-	background-image:url('../img/icons/iconmonstr-briefcase-2-64.png');
-}
-#section-7 .title-text{
-	background-image:url('../img/icons/iconmonstr-headphones-1-64.png');
-}
-#section-8 .title-text{
-	background-image:url('../img/icons/iconmonstr-email-2-64.png');
-}
-
-.title-text{
-	font-weight:300;
-	color:#fff;
-	font-size:1em;
-	line-height:75px;
-	width: 80vw;
-	position:absolute;
-	left:10vw;
-	transition:all 200ms;
-}
-.hero{
-	position:relative;
-	display:block;
-	height:64vh;
-	padding-top:20vh;
-	width:100%;
-	text-align:center;
-	font-size:6vw;
-	background:#212121;
-	color:#E53935;
-	z-index:1;
-	font-weight:400;
-}
-
-
-.hero .small-text{
-	font-family:monospace;
-	font-size:12px;
-	font-weight:300;
-	color:#eee;
-}
-.light-text{
-	color:#fff;
-}
-.card{
-	background: #fff;
-	color:#212121;
-	border-radius: 2px;
-	display: block;
-	position: relative;
-	width:80vw;
-	height:auto;
-	margin:0 auto;
-	padding:80px 40px;
-	margin-bottom:20px;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-	cursor:pointer;
-	transition: all 0.2s ease-in-out;
-}
-.card:hover {
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-}
-.card h1{
-	width:auto;
-	padding:20px;
-	background:transparent;
-	color:#686868;
-	font-size:1.4em;
-	text-align:left;
-	position:absolute;
-	top:0;
-	left:0;
-	right:0;
-	/*border-radius: 2px 2px 0 0;*/
-	font-weight:300;
-}
-.menu-bar{
-	position:fixed;
-	top:0;
-	width:100%;
-	background:#212121;
-	color:#212121;
-	height:56px;
-	z-index:3000;
-	transition: all 0.5s ease-in-out;
-	font-size:1.7em;
-	font-weight:300;
-	padding:0;
-}
-.compact{
-	background:#fff;
-}
-.menu-wrapper{
-	width:80vw;
-	margin:0 auto;
-}
-.nav,
-.menu{
-	width:44px;
-	height:44px;
-	margin:0px;
-	background-repeat:no-repeat;
-	background-position:center center;
-	background-size:36px 36px;
-	cursor:pointer;
-	display:inline-block;
-	opacity:.6;
-}
-.menu{
-	margin:6px;
-	background-image:url('../img/icons/iconmonstr-menu-1-48.png');
-	width:50px;
-	margin-right:4px;
-}
-.compact .menu{
-}
-.nav{
-	opacity:0;
-	pointer-events:none;
-	transition:all 0.2s ease-in-out;
-	position:relative;
-	top:-56px;
-	left:0px;
-	background-size:32px 32px;
-}
-.nav.active{
-	opacity: .6;
-	pointer-events:all;
-	top:-6px;
-}
-.nav-1{
-	transition-delay:100ms;
-	background-image:url('../img/icons/iconmonstr-code-2-48.png');
-	/*background-color:#37474F;*/
-}
-.nav-2{
-	transition-delay:200ms;
-	background-image:url('../img/icons/iconmonstr-code-5-48.png');
-	/*background-color:#03A9F4;*/
-}
-.nav-3{
-	transition-delay:300ms;
-	background-image:url('../img/icons/iconmonstr-computer-2-48.png');
-	/*background-color:#00BCD4;*/
-}
-.nav-4{
-	transition-delay:400ms;
-	background-image:url('../img/icons/iconmonstr-cpu-2-48.png');
-	/*background-color:#009688;*/
-}
-.nav-5{
-	transition-delay:500ms;
-	background-image:url('../img/icons/iconmonstr-gamepad-4-48.png');
-	/*background-color:#4CAF50;*/
-}
-.nav-6{
-	transition-delay:600ms;
-	background-image:url('../img/icons/iconmonstr-briefcase-2-48.png');
-	/*background-color:#FFC107;*/
-}
-.nav-7{
-	transition-delay:700ms;
-	background-image:url('../img/icons/iconmonstr-headphones-1-48.png');
-	/*background-color:#FF9800;*/
-}
-.nav-8{
-	transition-delay:800ms;
-	background-image:url('../img/icons/iconmonstr-email-2-48.png');
-	/*background-color:#FF5722;*/
-}
-
-@media (max-width:1024px){
-	.title-text,
-	.card{
-		width:90vw;
-	}
-	.nav{
-		display:block;
-		background-color:#fff;
-		margin-left:8px;
-	}
-	.nav.active{
-		opacity:1;
-	}
-}
-</code></pre>	</div>
-		</div></div>
+		<div class="hero">
+			<div class="loading-cover"></div>
+			<iframe src="game01/index.html" class="full-size"></iframe>
+			<div class="instruction-text"><img src="img/keyboard.png"/></div>
+		</div>
 		<div class="wrapper">
 			<section id="section-1">
 				<div class="fixed"><div class="title-text">Web Development</div></div>
+				<!-- idea; http://www.techbits.de/2011/10/25/building-a-google-plus-inspired-image-gallery/ 
+				https://github.com/kombai/freewall -->
 				<div class="card">
-					<h1>STUFF</h1>
-					<p>Lorem Ipsum</p>
+					<h1>PUBLISHING SERVICES DEPARTMENT</h1>
+					<div class="description-text">
+						<p>coming soon</p>
+					</div>
+				</div>
+				<div class="card">
+					<h1>GIGEVENT</h1>
+					<div class="description-text">
+						<p>coming soon</p>
+					</div>
+				</div>
+				<div class="card">
+					<h1>SOLEN</h1>
+					<div class="description-text">
+						<p>coming soon</p>
+					</div>
+				</div>
+				<div class="card">
+					<h1>NUTRITIOUSINTENT.COM</h1>
+					<div class="description-text">
+						<p>coming soon</p>
+					</div>
 				</div>
 			</section>
 			<section id="section-2">
 				<div class="fixed"><div class="title-text">Programming (offline)</div></div>
 				<div class="card">
 					<h1>STUFF</h1>
-					<p>Lorem Ipsum</p>
+					<div class="description-text">
+						<p>coming soon</p>
+					</div>
 				</div>
 			</section>
 			<section id="section-3">
 				<div class="fixed"><div class="title-text">Design</div></div>
 				<div class="card">
-					<h1>STUFF</h1>
-					<p>Lorem Ipsum</p>
+					<h1>GigEvent</h1>
+					<img class="port" src="img/gig1.jpg"/>
+					<img class="port" src="img/gig2.jpg"/>
+					<div class="description-text">
+						<p>For this project, I designed and build multiple HTML5/CSS/JS prototypes, logos, website, and mobile app content. The goal was both modern and user friendly interfaces, and the app gained traction, recieving several acquisition offers.</p>
+					</div>
 				</div>
 			</section>
 			<section id="section-4">
 				<div class="fixed"><div class="title-text">Engineering</div></div>
 				<div class="card">
 					<h1>STUFF</h1>
-					<p>Lorem Ipsum</p>
+					<div class="description-text">
+						<p>coming soon</p>
+					</div>
 				</div>
 			</section>
 			<section id="section-5">
 				<div class="fixed"><div class="title-text">Game Development</div></div>
 				<div class="card">
 					<h1>STUFF</h1>
-					<p>Lorem Ipsum</p>
+					<div class="description-text">
+						<p>coming soon</p>
+					</div>
 				</div>
 			</section>
 			<section id="section-6">
 				<div class="fixed"><div class="title-text">Intellectual Property</div></div>
 				<div class="card">
 					<h1>STUFF</h1>
-					<p>Lorem Ipsum</p>
+					<div class="description-text">
+						<p>coming soon</p>
+					</div>
 				</div>
 			</section>
 			<section id="section-7">
-				<div class="fixed"><div class="title-text">Music</div></div>
+				<div class="fixed"><div class="title-text">Print</div></div>
 				<div class="card">
 					<h1>STUFF</h1>
-					<p>Lorem Ipsum</p>
+					<div class="description-text">
+						<p>coming soon</p>
+					</div>
 				</div>
 			</section>
 			<section id="section-8">
 				<div class="fixed"><div class="title-text">Contact Info</div></div>
 				<div class="hero" style="margin-top:-20px;height:100vh">
-				</div>
+				<div class="cover-up"></div></div>
 			</section>
 		</div>
 	</div>
 	
 	<!-- Scripts -->
-	<script>document.write('<script src="js/main.js?dev=' + Math.floor(Math.random() * 100) + '"\><\/script>');</script>
+	<script src="js/main.js"></script>
 </body>
 </html>

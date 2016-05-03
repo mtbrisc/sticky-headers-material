@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<title>Document</title>
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,800,300' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Raleway:200,600' rel='stylesheet' type='text/css'>
+	<script>document.write('<link href="css/main.css?dev=' + Math.floor(Math.random() * 100) + '" rel="stylesheet" type="text/css">');</script>
+	<style>
+	body{
+		font-family:"Open Sans";
+		font-weight:300;
+		background:#e0e0e0;
+	}
+	button{
+		font-family:"Open Sans";
+		border:none;
+		width:90px;
+		height:90px;
+		color:white;
+		border-radius:50%;
+		margin:5px;
+		cursor:pointer;
+		transition:all 200ms;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border: none;
+    outline:none;
+    font-size:1.2em;
+    font-weight:400;
+	}
+	span{
+		outline:none;
+		font-weight:400;
+	}
+	#timer{
+		padding:18px 0;
+		border:4px solid #00BCD4;
+		color:#00BCD4;
+		font-size:22vw;
+		margin:18px 10px;
+	}
+	#start{
+		background:#4CAF50;
+	}
+	#stop{
+		background:#E53935;
+	}
+	#reset{
+		background:#00BCD4;
+	}
+	h1{
+		position:relative;
+		width:100vw;
+		text-align:center;
+		font-size:2em;
+		background:#607D8B;
+		color:white;
+		padding:20px 0;
+	}
+	section{
+		padding-top:50px;
+	}
+
+	.card{margin-top:16px;margin-bottom:16px;padding:73px 20px;}
+/*IE9*/
+button::selection 
+{
+    background-color:transparent;
+} 
+button::-moz-selection
+{
+    background-color:transparent;
+}
+button
+{        
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    /*IE10*/
+    -ms-user-select: none;
+    user-select: none;
+
+    /*You just need this if you are only concerned with android and not desktop browsers.*/
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+button:hover,
+button:active{
+		box-shadow: inset 0 0 20px rgba(0,0,0,0.19), inset 0 0 6px rgba(0,0,0,0.23);
+}
+input[type="text"], textarea, [contenteditable]
+{
+
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+	</style>
+</head>
+<body>
+	<div class="section">
+		<h1>SIMPLE TIMER</h1>
+		<div class="card">
+			<div id="timer"><span contenteditable="true" id="minutes">80</span>:<span contenteditable="true" id="seconds">00</span></div>
+			<button id="start">START</button>
+			<button id="stop">STOP</button>
+			<button id="reset">RESET</button>
+		</div>
+	</div>
+	
+	<script>
+		var playing = false;
+		var secondUnit = 1000;
+		var startTime = 60;
+		document.getElementById('minutes').innerHTML = startTime;
+		function n(n){
+		    return n > 9 ? "" + n: "0" + n;
+		}
+		function updateClock(){
+			var sec = parseInt(document.getElementById('seconds').innerHTML,10);
+			var min = parseInt(document.getElementById('minutes').innerHTML,10);
+			sec -=1;
+			if(sec < 0 ){
+				sec = 59;
+				min -= 1;
+			}
+			document.getElementById('seconds').innerHTML = n(sec);
+			document.getElementById('minutes').innerHTML = n(min);
+		}
+		function play(){
+			if(!playing){
+				timeinterval = setInterval(updateClock, secondUnit);
+				playing = true;
+			}
+		}
+		function stop(){ 
+			clearInterval(timeinterval);
+			playing = false;
+		}
+		function reset(){
+			clearInterval(timeinterval);
+			document.getElementById('minutes').innerHTML = startTime;
+			document.getElementById('seconds').innerHTML = '00';
+			playing = false;
+		}
+	  	var timeinterval;
+
+		document.getElementById('start').addEventListener('click',function(){
+			play();
+		});
+		document.getElementById('stop').addEventListener('click',function(){
+			stop();
+		});
+		document.getElementById('reset').addEventListener('click',function(){
+			reset();
+		})	;  	
+	</script>
+</body>
+</html>

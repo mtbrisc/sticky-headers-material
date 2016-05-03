@@ -20,7 +20,6 @@ var mobile = android || iOS;
 function doSomething(scroll_pos) {
   getCurrentSection(); // do something with the scroll position
 }
-
 window.addEventListener('scroll', function (e) {
   last_known_scroll_position = window.scrollY;
   if (!ticking) {
@@ -33,6 +32,18 @@ window.addEventListener('scroll', function (e) {
   }
   ticking = true;
 });
+var currentSection = 0;
+var timer = null;
+window.addEventListener('scroll', function() {
+    if(timer !== null) {
+        clearTimeout(timer);        
+    }
+    timer = setTimeout(function() {
+      var stringImage = '../img/output_XBGKZ8.gif';
+      var newImage =  stringImage.replace(/\?.*$/,"")+"?x="+Math.random();
+      document.getElementsByClassName('name')[0].style.cssText = "background-image:url("+newImage+")";
+    }, 150);
+}, false);
 
 function init() {
   cachedMenuObjHeight = menuObj.getBoundingClientRect().bottom - menuObj.getBoundingClientRect().top;
@@ -68,6 +79,41 @@ function init() {
     }
     document.getElementsByClassName('menu-bar')[0].style.cssText = "width:60px";
   }
+  if(!mobile){
+    setTimeout(function(){
+      document.getElementsByClassName('instruction-text')[0].style.cssText = "opacity:1";
+    },400);
+    setTimeout(function(){
+      document.getElementsByClassName('instruction-text')[0].style.cssText = "opacity:0";
+    },4400);
+  }
+  setTimeout(function(){
+    document.getElementsByClassName('loading-cover')[0].style.cssText = "opacity:0";
+  },1100);
+
+  var cardObjects = document.getElementsByClassName('card');
+  for (var i = 0; i < cardObjects.length; i++) {
+    attachFullscreenEvent(cardObjects[i]);
+  }
+  // if(!mobile){
+  //   setTimeout(function(){
+  //     document.getElementsByClassName('instruction-text')[0].style.cssText = "top:-20px;opacity:0";
+  //   },10000);
+  // }
+  // document.getElementById('flashContent').addEventListener('click',function(){
+  //   alert('stuff');
+  // });
+}
+
+function attachFullscreenEvent(el){
+  el.addEventListener('click',function(){
+    //el.parentElement.innerHTML ="<div class=\"card\">POOOOOOOP</div>"+el.parentElement.innerHTML;
+    // toggleClassCustom(el,'active');
+    // scrollTo(document.body, 0, 0);
+    // scrollTo(document.body, el.getBoundingClientRect().top, 300);
+    // toggleClassCustom(document.body,'lock-scroll');
+    // toggleClassCustom(document.getElementsByTagName('html')[0],'lock-scroll');
+  });
 }
 
 // window.addEventListener("resize", function () {
@@ -78,11 +124,16 @@ function init() {
 function addScrollAnimation(el, targetId, offset) {
   el.addEventListener("click", function () {
     //scrollTo(document.body, offset, 600);
-    bringIntoView(document.querySelector('#' + targetId), 1400);
+    // var stringImage = '../img/output_XBGKZ8.gif';
+    // var newImage =  stringImage.replace(/\?.*$/,"")+"?x="+Math.random();
+    // document.getElementsByClassName('name')[0].style.cssText = "background-image:url("+newImage+")";
+    bringIntoView(document.querySelector('#' + targetId), 2400);
     toggleActiveClass(document.getElementsByClassName('menu-wrapper')[0]);
-    var navItems = document.getElementsByClassName('nav');
-    for (var i = 0; i < navItems.length; i++) {
-      toggleActiveClass(navItems[i]);
+    if (mobile) {
+      var navItems = document.getElementsByClassName('nav');
+      for (var i = 0; i < navItems.length; i++) {
+        toggleActiveClass(navItems[i]);
+      }
     }
     //document.getElementById(targetId).scrollIntoView();
   }, false);
@@ -160,6 +211,14 @@ function addClassCustom(el, classToAdd) {
 function removeClassCustom(el, classToAdd) {
   if (el.classList.contains(classToAdd)) {
     el.classList.remove(classToAdd);
+  }
+}
+
+function toggleClassCustom(el, classToToggle){
+  if (el.classList.contains(classToToggle)) {
+    el.classList.remove(classToToggle);
+  } else {
+    el.classList.add(classToToggle);
   }
 }
 

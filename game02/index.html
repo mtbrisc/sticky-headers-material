@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Game 01</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<script type="text/javascript" src="js/phaser.min.js"></script>
+		<style>
+@font-face {
+    font-family: 'venus_risingregular';
+    src: url('venus_rising_rg.eot');
+    src: url('venus_rising_rg.eot?#iefix') format('embedded-opentype'),
+         url('venus_rising_rg.woff2') format('woff2'),
+         url('venus_rising_rg.woff') format('woff'),
+         url('venus_rising_rg.ttf') format('truetype'),
+         url('venus_rising_rg.svg#venus_risingregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+			html,body,#container{
+				padding:0;
+				margin:0;
+				overflow:hidden;
+				height:100%;
+				width:100%;
+			}
+
+			#container{
+				font-family:"venus_risingregular"!important;
+				width:100%;
+				height:100%;
+background: linear-gradient(182deg, #00bfff, #c4eeec, #cd0b00, #ffe169, #00bfff, #c4eeec);
+background-size: 800% 800%;
+-webkit-animation: AnimationName 199s ease infinite;
+-moz-animation: AnimationName 199s ease infinite;
+-o-animation: AnimationName 199s ease infinite;
+animation: AnimationName 199s ease infinite;
+}
+@-webkit-keyframes AnimationName {
+    0%{background-position:51% 0%}
+    100%{background-position:50% 100%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:51% 0%}
+    100%{background-position:50% 100%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:51% 0%}
+    100%{background-position:50% 100%}
+}
+@keyframes AnimationName {
+    0%{background-position:51% 0%}
+    100%{background-position:50% 100%}
+}
+		</style>
+	</head>
+	<body>
+		<div id="container"></div>
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>
